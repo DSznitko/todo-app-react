@@ -1,0 +1,29 @@
+.new-task {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  margin: 0.5rem 0;
+}
+
+.task-name {
+  padding: 0.5rem;
+  margin-right: 5rem;
+  list-style: none;
+  font-size: 1.2rem;
+}
+
+button {
+  padding: 0.4rem 0.8rem;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.check {
+  color: rgb(17, 190, 17);
+}
+
+.delete {
+  color: var(--main-color);
+}

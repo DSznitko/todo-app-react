@@ -6,6 +6,10 @@
   box-sizing: border-box;
 }
 
+:root {
+  --main-color: #f37335;
+}
+
 body {
   font-family: "Roboto", sans-serif;
   background: linear-gradient(to right, #fdc830, #f37335);
