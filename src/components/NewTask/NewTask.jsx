@@ -7,12 +7,28 @@ const NewTask = ({ text, setNewTask, task, newTask }) => {
     setNewTask(newTask.filter((el) => el.id !== task.id));
   };
 
+  const checkTaskHandler = () => {
+    setNewTask(
+      newTask.map((el) => {
+        if (el.id === task.id) {
+          return {
+            ...el,
+            completed: !el.completed,
+          };
+        }
+        return el;
+      })
+    );
+  };
+
   return (
     <div className="task-container">
       <div className="new-task">
-        <li className="task-name">{text}</li>
+        <li className={`task-name ${task.completed ? "completed" : ""}`}>
+          {text}
+        </li>
         <div className="buttons">
-          <button className="check">
+          <button onClick={checkTaskHandler} className="check">
             <FaCheck />
           </button>
           <button onClick={deleteTaskHandler} className="delete">

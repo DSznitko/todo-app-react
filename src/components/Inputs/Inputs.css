@@ -6,6 +6,7 @@
 
 .task-input {
   margin-right: 1rem;
+  min-width: 50px;
 }
 
 .task-value {

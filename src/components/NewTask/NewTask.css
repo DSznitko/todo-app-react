@@ -3,6 +3,8 @@
   align-items: center;
   background-color: #fff;
   margin: 0.5rem 0;
+  min-width: 400px;
+  max-width: 400px;
 }
 
 .task-name {
@@ -10,6 +12,10 @@
   margin-right: 5rem;
   list-style: none;
   font-size: 1.2rem;
+}
+
+.buttons {
+  margin-left: auto;
 }
 
 button {
@@ -26,4 +32,9 @@ button {
 
 .delete {
   color: var(--main-color);
+}
+
+.completed {
+  opacity: 0.5;
+  text-decoration: line-through;
 }
