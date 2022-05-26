@@ -2,20 +2,32 @@ import React from "react";
 import "./Inputs.css";
 import {} from "react-icons/fa";
 
-const Inputs = ({ setInputValue, newTask, setNewTask, inputValue }) => {
-  const inputHandler = (e) => {
+const Inputs = ({
+  setInputValue,
+  inputValue,
+  newTask,
+  setNewTask,
+  taskStatus,
+  setTaskStatus,
+}) => {
+  const taskStatusHandler = (e) => {
+    setTaskStatus(e.target.value);
+  };
+
+  const inputValueHandler = (e) => {
     setInputValue(e.target.value);
   };
 
   const newTaskHandler = () => {
-    setNewTask([
-      ...newTask,
-      {
-        text: inputValue,
-        completed: false,
-        id: Math.random() * 1000,
-      },
-    ]);
+    if (inputValue === "") {
+      return;
+    } else {
+      setNewTask([
+        ...newTask,
+        { text: inputValue, completed: false, id: Math.random() * 1000 },
+      ]);
+    }
+
     setInputValue("");
   };
 
@@ -23,9 +35,9 @@ const Inputs = ({ setInputValue, newTask, setNewTask, inputValue }) => {
     <div className="inputs">
       <div className="task-input">
         <input
-          value={inputValue}
-          onChange={inputHandler}
+          onChange={inputValueHandler}
           type="text"
+          value={inputValue}
           placeholder="Write your task"
           className="task-value"
         />
@@ -33,14 +45,11 @@ const Inputs = ({ setInputValue, newTask, setNewTask, inputValue }) => {
           Add task
         </button>
       </div>
-      <select className="select-category">
-        <option value="All" className="category">
+      <select onChange={taskStatusHandler} className="select-category">
+        <option value="all" className="category">
           All
         </option>
-        <option value="Completed" className="category">
-          Completed
-        </option>
-        <option value="Uncompleted" className="category">
+        <option value="uncompleted" className="category">
           Uncompleted
         </option>
       </select>

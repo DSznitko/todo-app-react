@@ -2,21 +2,21 @@ import React from "react";
 import "./NewTask.css";
 import { FaCheck, FaTrash } from "react-icons/fa";
 
-const NewTask = ({ text, setNewTask, task, newTask }) => {
+const NewTask = ({ text, task, newTask, setNewTask }) => {
   const deleteTaskHandler = () => {
     setNewTask(newTask.filter((el) => el.id !== task.id));
   };
 
   const checkTaskHandler = () => {
     setNewTask(
-      newTask.map((el) => {
-        if (el.id === task.id) {
+      newTask.map((item) => {
+        if (item.id === task.id) {
           return {
-            ...el,
-            completed: !el.completed,
+            ...item,
+            completed: !item.completed,
           };
         }
-        return el;
+        return item;
       })
     );
   };
@@ -24,9 +24,7 @@ const NewTask = ({ text, setNewTask, task, newTask }) => {
   return (
     <div className="task-container">
       <div className="new-task">
-        <li className={`task-name ${task.completed ? "completed" : ""}`}>
-          {text}
-        </li>
+        <li className={`task-name ${task.completed && "completed"}`}>{text}</li>
         <div className="buttons">
           <button onClick={checkTaskHandler} className="check">
             <FaCheck />

@@ -2,17 +2,17 @@ import React from "react";
 import "./TaskList.css";
 import NewTask from "../NewTask/NewTask";
 
-const TaskList = ({ newTask, setNewTask }) => {
+const TaskList = ({ newTask, setNewTask, filterTasks }) => {
   return (
     <div>
       <ul className="tasks-list">
-        {newTask.map((task) => (
+        {filterTasks.map((task) => (
           <NewTask
-            task={task}
             setNewTask={setNewTask}
             newTask={newTask}
-            text={task.text}
+            task={task}
             key={task.id}
+            text={task.text}
           />
         ))}
       </ul>
